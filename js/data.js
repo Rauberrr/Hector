@@ -1,5 +1,5 @@
 /* =========================================================
-   UNIVERSO HECTOR — conteúdo de todas as experiências
+   UNIVERSO HECTOR: conteúdo de todas as experiências
    Tudo marcado com "confirmar: true" precisa ser validado
    com o cliente antes de ir ao ar.
    ========================================================= */
@@ -8,6 +8,8 @@ const LOGOS = 'https://hectorstudios.com.br/wp-content/uploads/';
 const MUNDOS = [
   {
     id: 'pizzaria',
+    foto: 'https://hectordragao.com.br/wp-content/uploads/2023/03/site-pizzaria-tematica.jpg',
+    icone: 'wand',
     nome: 'Hector Pizzaria',
     reino: 'Escola de Magia Ônyra',
     logo: LOGOS + '2026/06/logo-white-1.webp',
@@ -22,7 +24,7 @@ const MUNDOS = [
     historia: [
       'No coração do Reino de Gramado ergue-se o castelo de Ônyra, a escola onde o Mago Dragão Hector ensina seus aprendizes.',
       'Lá, poções borbulham, livros de feitiços ganham vida e a aula mais disputada é a de culinária encantada: a arte de preparar os famosos discos de sabor.',
-      'Quem atravessa os portões não é cliente — é aprendiz. E todo aprendiz tem um lugar reservado na mesa do castelo.'
+      'Quem atravessa os portões não é cliente, é aprendiz. E todo aprendiz tem um lugar reservado na mesa do castelo.'
     ],
     passos: [
       ['Portões abertos', 'Os aprendizes chegam ao castelo e recebem as boas-vindas da trupe de Ônyra.'],
@@ -38,24 +40,26 @@ const MUNDOS = [
     personagens: ['Hector, o Mago Dragão', 'Professora Dora, a arquimaga', 'Asdrúbal, o duende', 'Trupe de Ônyra'],
     curiosidades: [
       'Aqui pizza não se chama pizza: é "disco de sabor".',
-      'À noite, a fachada do castelo vira palco do Grande Iluminare — um show de luzes gratuito para quem passa na rua.',
+      'À noite, a fachada do castelo vira palco do Grande Iluminare, um show de luzes gratuito para quem passa na rua.',
       'Na loja do Hector dá para levar para casa a Varinha Chave de Ônyra.',
       'Eleita Travellers\' Choice 2026 pelo Tripadvisor: entre as 10% melhores atrações do mundo.'
     ],
     info: {
-      horarios: ['Dom a qui: 18h e 21h', 'Sex e sáb: 17h05, 19h45 e 22h25', 'Portões abrem 18h (dom–qui) e 17h (sex–sáb)'],
+      horarios: ['Dom a qui: 18h e 21h', 'Sex e sáb: 17h05, 19h45 e 22h25', 'Portões abrem 18h (dom a qui) e 17h (sex e sáb)'],
       preco: 'a partir de R$ 249,90',
       duracao: 'Cerca de 2h (confirmar)',
-      endereco: 'Av. Borges de Medeiros, 1791 – Centro, Gramado',
+      endereco: 'Av. Borges de Medeiros, 1791, Centro, Gramado',
       criancas: '0 a 4 anos não pagam, mas precisam estar na reserva (confirmar)'
     },
     cta: { label: 'Reservar meu lugar no castelo', url: 'https://hectordragao.com.br/pizzaria/' },
-    mapa: { x: 330, y: 250 }
+    mapa: { x: 340, y: 330 }
   },
   {
     id: 'ferrovia',
+    foto: 'https://hectordragao.com.br/wp-content/uploads/2025/03/cover-produto-ferrovia.webp',
+    icone: 'train',
     nome: 'Ferrovia Secreta',
-    reino: 'A hamburgueria-trem do Hector',
+    reino: 'A hamburgueria sobre trilhos do Hector',
     logo: LOGOS + '2026/06/logo-ferrovia-white.webp',
     cores: ['#C2410C', '#0C1456'],
     acento: '#FF861B',
@@ -67,7 +71,7 @@ const MUNDOS = [
     publico: ['Famílias', 'Casais', 'Grupos'],
     historia: [
       'Hector deixou a Ilha de Trélion em busca de novas aventuras e construiu uma ferrovia que só os aprendizes conhecem.',
-      'Cada vagão atravessa um reino diferente — e em cada parada há um sabor novo esperando na mesa.',
+      'Cada vagão atravessa um reino diferente, e em cada parada há um sabor novo esperando na mesa.',
       'Os aprendizes de bordo recepcionam os passageiros e contam tudo o que acontece pela janela. Ninguém viaja igual duas vezes.'
     ],
     passos: [
@@ -84,7 +88,7 @@ const MUNDOS = [
       ['Chopp dos Anões da Montanha', 'Pilsen ou APA'],
       ['Ovo do Dragão', 'A sobremesa com folhas de ouro e brownie']
     ],
-    personagens: ['Lady Lince, a garçonete-gata', 'Aprendiz de bordo Carina', 'Professor Stan, o alquimista', 'Kóry, a monitora'],
+    personagens: ['Lady Lince, a garçonete felina', 'Aprendiz de bordo Carina', 'Professor Stan, o alquimista', 'Kóry, a monitora'],
     curiosidades: [
       'Os hambúrgueres têm nomes como "Ogro quer bacon", "Herbivoglobo" e "Globozola de Fogo".',
       'Dizem que a Lady Lince faz fogo sair dos livros… fique de olho!',
@@ -95,14 +99,16 @@ const MUNDOS = [
       horarios: ['Diariamente: 17h45, 19h45 e 21h45', 'Sex e sáb também às 15h45'],
       preco: 'a partir de R$ 199,90',
       duracao: 'Cerca de 2h',
-      endereco: 'Av. Borges de Medeiros, 2875 – Centro, Gramado',
+      endereco: 'Av. Borges de Medeiros, 2875, Centro, Gramado',
       criancas: '0 a 4 anos não pagam, mas precisam estar na reserva (confirmar)'
     },
     cta: { label: 'Comprar meu bilhete de trem', url: 'https://hectordragao.com.br/ferrovia/' },
-    mapa: { x: 560, y: 360 }
+    mapa: { x: 600, y: 470 }
   },
   {
     id: 'era-do-fogo',
+    foto: 'https://hectordragao.com.br/wp-content/uploads/2025/02/fondue-tematicov2.webp',
+    icone: 'flame',
     nome: 'Era do Fogo',
     reino: 'O fondue mais cavernoso de Gramado',
     logo: LOGOS + '2026/06/Era-do-fogo-Branco-Crop.webp',
@@ -117,7 +123,7 @@ const MUNDOS = [
     historia: [
       'Uma fenda se abriu na Serra Gaúcha e revelou um reino escondido da era das cavernas, onde humanos convivem com dinossauros.',
       'Ali vive a tribo Grinstone, liderada por Gruga Grinstone, que acaba de descobrir o maior tesouro de todos: o fogo.',
-      'Os visitantes — os "modernosos" — são convidados para o Ritual de Comilança. Só não contem para o T-Rex…'
+      'Os visitantes, chamados de "modernosos", são convidados para o Ritual de Comilança. Só não contem para o T-Rex…'
     ],
     passos: [
       ['Entrada na caverna', 'A tribo recebe os modernosos falando Unguês, a língua dos Grinstone.'],
@@ -135,7 +141,7 @@ const MUNDOS = [
     personagens: ['Gruga Grinstone, o anfitrião', 'A tribo Grinstone', 'O T-Rex (cuidado!)'],
     curiosidades: [
       'A equipe fala Unguês, um idioma inventado só para a caverna.',
-      'Criança na caverna é chamada de "cria de modernoso" — e tem a Caverna Kids só para elas.',
+      'Criança na caverna é chamada de "cria de modernoso", e tem a Caverna Kids só para elas.',
       'Mais de 43 mil modernosos passaram pela caverna no primeiro ano.',
       'Prata no TOP de Marketing ADVB/RS 2026.'
     ],
@@ -143,14 +149,15 @@ const MUNDOS = [
       horarios: ['Sessões às 18h e 21h', 'Fechado às terças'],
       preco: 'a partir de R$ 299,90',
       duracao: 'Cerca de 2h20',
-      endereco: 'Av. das Hortênsias, 4901 – Carniel, Gramado',
+      endereco: 'Av. das Hortênsias, 4901, Carniel, Gramado',
       criancas: '0 a 4 anos grátis (na reserva) · aniversariante com 4 pagantes tem 50% off'
     },
     cta: { label: 'Garantir meu lugar na caverna', url: 'https://www.eradofogo.com.br/' },
-    mapa: { x: 790, y: 230 }
+    mapa: { x: 830, y: 270 }
   },
   {
     id: 'fogo-do-dragao',
+    icone: 'coaster',
     nome: 'Fogo do Dragão',
     reino: 'A montanha-russa do Hector no Alpen Park',
     logo: LOGOS + '2026/06/Ativo-2fogo-do-dragao-300x269-1.webp',
@@ -184,14 +191,15 @@ const MUNDOS = [
       horarios: ['Conforme funcionamento do Alpen Park (confirmar)'],
       preco: 'Passaporte a partir de R$ 138,90',
       duracao: 'Livre (dentro do parque)',
-      endereco: 'Alpen Park – Canela/Gramado (confirmar)',
+      endereco: 'Alpen Park, Canela/Gramado (confirmar)',
       criancas: 'Altura mínima de 1,30 m para o passaporte (confirmar)'
     },
     cta: { label: 'Comprar passaporte', url: 'https://ingressos.hectordragao.com.br/passaporte-alpen-park-pessoas-acima-de-13m-com-antecedencia' },
-    mapa: { x: 830, y: 480 }
+    mapa: { x: 875, y: 600 }
   },
   {
     id: 'pedidos-magicos',
+    icone: 'box',
     nome: 'Pedidos Mágicos',
     reino: 'A magia do Hector entregue na sua porta',
     logo: '',
@@ -200,7 +208,7 @@ const MUNDOS = [
     obj3d: 'box',
     emoji: '📦',
     tagline: 'Diga "Magia" três vezes… e o lacre se abre.',
-    resumo: 'Delivery temático em Gramado e Canela — inclusive no quarto do hotel — com caixas interativas e cartas colecionáveis.',
+    resumo: 'Delivery temático em Gramado e Canela, inclusive no quarto do hotel, com caixas interativas e cartas colecionáveis.',
     tipo: 'Delivery temático · Gramado e Canela',
     publico: ['Hotéis', 'Famílias', 'Quem ficou com preguiça 😄'],
     historia: [
@@ -223,20 +231,21 @@ const MUNDOS = [
     curiosidades: [
       'Inaugurado em 10 de novembro de 2026, depois de dois anos de desenvolvimento.',
       'Existe um sabor secreto para quem estava na lista de abertura.',
-      'Tente agora: digite M-A-G-I-A no teclado deste site. ✨'
+      'Tente agora: digite a palavra magia no teclado deste site.'
     ],
     info: {
       horarios: ['Terça a domingo: 18h30 às 0h30'],
       preco: 'Consulte o cardápio',
-      duracao: '—',
-      endereco: 'Retirada: R. Prefeito Nelson Dinnebier, 763, Loja 01 – Piratini, Gramado',
+      duracao: 'Não se aplica',
+      endereco: 'Retirada: R. Prefeito Nelson Dinnebier, 763, Loja 01, Piratini, Gramado',
       criancas: 'Caixas com canetinhas e desenhos para as crianças'
     },
     cta: { label: 'Fazer meu pedido mágico', url: 'https://www.pedidosmagicos.com.br/' },
-    mapa: { x: 520, y: 175 }
+    mapa: { x: 590, y: 235 }
   },
   {
     id: 'castelo-de-gelo',
+    icone: 'snow',
     nome: 'Castelo de Gelo',
     reino: 'Em breve no Reino de Gramado',
     logo: LOGOS + '2026/06/250530_ass_alt_neve-1024x535-1.webp',
@@ -267,21 +276,21 @@ const MUNDOS = [
     info: {
       horarios: ['Em breve'],
       preco: 'Em breve',
-      duracao: '—',
-      endereco: 'Av. das Hortênsias – Gramado (confirmar)',
-      criancas: '—'
+      duracao: 'Não se aplica',
+      endereco: 'Av. das Hortênsias, Gramado (confirmar)',
+      criancas: 'Em breve'
     },
     cta: { label: 'Quero ser avisado', url: 'https://www.instagram.com/hectorstudiosbr' },
     emBreve: true,
-    mapa: { x: 150, y: 175 }
+    mapa: { x: 135, y: 248 }
   }
 ];
 
 /* Atrações menores que aparecem no mapa e na seção "Mais magia" */
 const EXTRAS = [
-  { id: 'iluminare', nome: 'O Grande Iluminare', emoji: '✨', texto: 'Show gratuito de luzes na fachada do castelo de Ônyra, inspirado nos grandes parques. Toda noite (horário a confirmar).', mapa: { x: 250, y: 330 } },
-  { id: 'clicks', nome: 'Clicks Mágicos', emoji: '📸', texto: 'Fotos encantadas para levar a lembrança da viagem para casa.', mapa: { x: 420, y: 470 } },
-  { id: 'filme', nome: 'Filme Mileninha', emoji: '🎬', texto: '"Hector e Mileninha em: O Amuleto da Amizade" — o filme do universo Hector.', url: 'https://www.youtube.com/@Hector-Omagodragao' },
-  { id: 'play', nome: 'Hector Play', emoji: '📺', texto: 'O canal infantil do Hector no YouTube, com aventuras da trupe de Ônyra.', url: 'https://www.youtube.com/@Hector-Omagodragao' },
-  { id: 'loja', nome: 'Loja do Hector', emoji: '🪄', texto: 'Varinhas, fascículos e relíquias para continuar a magia em casa.', url: 'https://loja.hectordragao.com.br' }
+  { id: 'iluminare', icone: 'spark', nome: 'O Grande Iluminare', emoji: '✨', texto: 'Show gratuito de luzes na fachada do castelo de Ônyra, inspirado nos grandes parques. Toda noite (horário a confirmar).', mapa: { x: 205, y: 430 } },
+  { id: 'clicks', icone: 'camera', nome: 'Clicks Mágicos', emoji: '📸', texto: 'Fotos encantadas para levar a lembrança da viagem para casa.', mapa: { x: 430, y: 590 } },
+  { id: 'filme', icone: 'film', nome: 'Filme Mileninha', emoji: '🎬', texto: '"Hector e Mileninha em: O Amuleto da Amizade": o filme do universo Hector.', url: 'https://www.youtube.com/@Hector-Omagodragao' },
+  { id: 'play', icone: 'play', nome: 'Hector Play', emoji: '📺', texto: 'O canal infantil do Hector no YouTube, com aventuras da trupe de Ônyra.', url: 'https://www.youtube.com/@Hector-Omagodragao' },
+  { id: 'loja', icone: 'bag', nome: 'Loja do Hector', emoji: '🪄', texto: 'Varinhas, fascículos e relíquias para continuar a magia em casa.', url: 'https://loja.hectordragao.com.br' }
 ];

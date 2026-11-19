@@ -308,3 +308,23 @@ footer .socials a { padding: 10px 18px; border-radius: 99px; background: rgba(25
   #map svg { width: 760px; max-width: none; }
   .map-hint::before { content: '👆 arraste o mapa para os lados · '; }
 }
+
+/* ===== v2: ícones, Hector oficial, mapa ===== */
+.icon { width: 1.15em; height: 1.15em; vertical-align: -.2em; flex-shrink: 0; }
+.egg-counter { display: inline-flex; align-items: center; gap: 6px; }
+.hector-fly { width: 200px; }
+.hector-fly img { width: 100%; animation: flap .6s ease-in-out infinite alternate; user-select: none; }
+.map-card .mc-logo { height: 54px; width: auto; max-width: 200px; object-fit: contain; margin-bottom: 8px; }
+.mc-icon { width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center; background: linear-gradient(135deg, var(--magenta), var(--purple)); margin-bottom: 8px; }
+.mc-icon .icon { width: 28px; height: 28px; }
+.e-icon { width: 52px; height: 52px; border-radius: 16px; display: inline-grid; place-items: center;
+  background: linear-gradient(135deg, var(--purple), var(--blue)); color: var(--gold); box-shadow: 0 8px 20px rgba(0,0,0,.3); animation: bob 3s ease-in-out infinite; }
+.e-icon .icon { width: 26px; height: 26px; }
+.portal .p-logo-text { display: flex; align-items: center; gap: 12px; font-weight: 900; font-style: italic; font-size: 1.3rem; line-height: 1; }
+.portal .p-logo-text .icon { width: 46px; height: 46px; padding: 8px; border-radius: 14px; background: rgba(255,255,255,.15); }
+.pin .pin-label { font-size: 14px; stroke: none; }
+.pin .pin-label.small { font-size: 13px; paint-order: stroke; stroke: rgba(12,20,86,.9); stroke-width: 5px; }
+.pin-tag { transition: transform .3s; }
+.pin:hover .pin-tag, .pin.active .pin-tag { transform: translateY(4px); }
+.map-frame { background: #0C1456; }
+@media (max-width: 760px) { #map svg { width: 900px; } .pin .pin-label { font-size: 14px; } }

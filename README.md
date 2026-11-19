@@ -1,4 +1,4 @@
-# Universo Hector — protótipo
+# Universo Hector: protótipo
 
 Protótipo do novo hub da Hector Studios (Gramado). É feito só com HTML, CSS e JavaScript, sem build.
 

@@ -1,5 +1,5 @@
 /* =========================================================
-   JORNADA EM SCROLL — uma página por experiência
+   JORNADA EM SCROLL: uma página por experiência
    experiencia.html?mundo=pizzaria | ferrovia | era-do-fogo ...
    ========================================================= */
 
@@ -19,7 +19,7 @@ function render(m) {
   document.body.style.setProperty('--c1', m.cores[0]);
   document.body.style.setProperty('--c2', m.cores[1]);
   document.body.style.setProperty('--acc', m.acento);
-  $('.traveler').textContent = TRAVELER[m.id];
+  $('.traveler').innerHTML = `<img src="${HECTOR_IMG}" alt="">`;
 
   const idx = MUNDOS.indexOf(m);
   const next = MUNDOS[(idx + 1) % MUNDOS.length], prev = MUNDOS[(idx - 1 + MUNDOS.length) % MUNDOS.length];
@@ -53,7 +53,8 @@ function render(m) {
         <h2 class="display section-title reveal">${cap[0]}</h2>
         ${m.historia.map((p, i) => `<p class="story reveal d${i}">${p}</p>`).join('')}
       </div>
-      <div class="placeholder reveal d2 tall"><div><b>Sugestão de imagem</b>Ilustração ou foto ampla de ${m.nome}<br>(fachada/ambiente com luz noturna).<br>Ideal: WebP 1600px, com leve efeito parallax.</div></div>
+      ${m.foto ? `<figure class="j-photo reveal d2"><img src="${m.foto}" alt="${m.nome}" loading="lazy"><figcaption>Foto: Hector Studios</figcaption></figure>`
+        : `<div class="placeholder reveal d2 tall"><div><b>Sugestão de imagem</b>Ilustração ou foto ampla de ${m.nome}<br>(fachada ou ambiente com luz noturna).<br>Ideal: WebP 1600px, com leve efeito parallax.</div></div>`}
     </div>
   </section>
 
@@ -79,7 +80,7 @@ function render(m) {
       <div class="menu-grid">
         ${m.cardapio.map(([n, d], i) => `
           <button class="flip reveal d${i % 3}"><span class="flip-in">
-            <span class="front"><span class="f-emoji">${m.emoji}</span><b>${n}</b><small>toque para traduzir ✦</small></span>
+            <span class="front"><span class="f-emoji">${icon(m.icone)}</span><b>${n}</b><small>toque para traduzir ✦</small></span>
             <span class="back"><b>${n}</b><span>${d}</span></span>
           </span></button>`).join('')}
       </div>
@@ -126,14 +127,14 @@ function render(m) {
           <div class="price"><small>${m.emBreve ? '' : 'ingresso'}</small>${m.info.preco}</div>
         </div>
         <div class="info-grid">
-          <div><h4>🕰️ Horários</h4>${m.info.horarios.map(h => `<p>${h}</p>`).join('')}</div>
-          <div><h4>⏳ Duração</h4><p>${m.info.duracao}</p></div>
-          <div><h4>📍 Onde fica</h4><p>${m.info.endereco}</p><a href="${mapsUrl}" target="_blank" rel="noopener">Abrir no mapa →</a></div>
-          <div><h4>🧒 Crianças</h4><p>${m.info.criancas}</p></div>
+          <div><h4>${icon('clock')} Horários</h4>${m.info.horarios.map(h => `<p>${h}</p>`).join('')}</div>
+          <div><h4>${icon('hourglass')} Duração</h4><p>${m.info.duracao}</p></div>
+          <div><h4>${icon('pin')} Onde fica</h4><p>${m.info.endereco}</p><a href="${mapsUrl}" target="_blank" rel="noopener">Abrir no mapa →</a></div>
+          <div><h4>${icon('kid')} Crianças</h4><p>${m.info.criancas}</p></div>
         </div>
         <div class="info-cta">
-          <a class="btn big" href="${m.cta.url}" target="_blank" rel="noopener">${m.cta.label} ✨</a>
-          <a class="btn ghost" href="https://wa.me/5554999510522" target="_blank" rel="noopener">💬 Dúvidas no WhatsApp</a>
+          <a class="btn big" href="${m.cta.url}" target="_blank" rel="noopener">${icon('ticket')} ${m.cta.label}</a>
+          <a class="btn ghost" href="https://wa.me/5554999510522" target="_blank" rel="noopener">${icon('chat')} Dúvidas no WhatsApp</a>
         </div>
       </div>
     </div>
@@ -146,9 +147,9 @@ function render(m) {
       <div class="nw-grid">
         ${[prev, next].map(w => `
           <a class="nw reveal" href="experiencia.html?mundo=${w.id}" style="--c1:${w.cores[0]};--c2:${w.cores[1]}">
-            <span class="nw-emoji">${w.emoji}</span><div><small>${w === prev ? '← mundo anterior' : 'próximo mundo →'}</small><h3 class="display">${w.nome}</h3></div></a>`).join('')}
+            <span class="nw-emoji">${w.logo ? `<img src="${w.logo}" alt="">` : icon(w.icone)}</span><div><small>${w === prev ? '← mundo anterior' : 'próximo mundo →'}</small><h3 class="display">${w.nome}</h3></div></a>`).join('')}
       </div>
-      <p style="text-align:center;margin-top:24px"><a class="btn ghost" href="index.html#mapa">🗺️ Voltar ao mapa mágico</a></p>
+      <p style="text-align:center;margin-top:24px"><a class="btn ghost" href="index.html#mapa">${icon('map')} Voltar ao mapa mágico</a></p>
     </div>
   </section>`;
 

@@ -1,5 +1,5 @@
 /* =========================================================
-   MAGIA COMPARTILHADA — céu, faíscas, easter eggs, objetos 3D
+   MAGIA COMPARTILHADA: céu, faíscas, easter eggs, objetos 3D
    ========================================================= */
 
 /* ---- Hector (PLACEHOLDER em SVG) ----
@@ -21,6 +21,36 @@ const HECTOR_SVG = `
   <g class="wing" style="animation-delay:.15s"><path d="M120 72 C110 20 140 5 160 15 C145 25 150 40 160 48 C140 50 135 62 120 72Z" fill="#9EE6F2" stroke="#1A2891" stroke-width="3"/></g>
   <path d="M85 138 l-6 16 h14z M130 140 l-4 16 h14z" fill="#8740C0" stroke="#1A2891" stroke-width="3"/>
 </svg>`;
+
+
+/* Hector oficial (ilustração do site atual da Hector) */
+const HECTOR_IMG = 'https://hectordragao.com.br/wp-content/uploads/2023/12/hector_com_varinha-1024x1001.webp';
+
+/* ---- ícones desenhados (substituem emojis) ---- */
+const ICONS = {
+  wand: '<path d="M4 20L15 9"/><path d="M15 3v3M19 5l-2 2M21 9h-3M18 12l-1-1"/>',
+  train: '<rect x="5" y="3" width="14" height="13" rx="3"/><path d="M5 10h14M8 20l2-4M16 20l-2-4"/><circle cx="9" cy="13" r=".8"/><circle cx="15" cy="13" r=".8"/>',
+  flame: '<path d="M12 22c4 0 7-3 7-7 0-4-3-6-4-10-2 2-3 4-3 6-1-1-2-2-2-4-2 2-5 5-5 8 0 4 3 7 7 7z"/>',
+  coaster: '<path d="M2 18c3-8 6-12 9-12s4 6 6 6 3-3 5-5"/><path d="M5 20v-5M11 20V7M17 20v-7"/>',
+  box: '<path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>',
+  snow: '<path d="M12 2v20M3.5 7l17 10M20.5 7l-17 10M9 4l3 2 3-2M9 20l3-2 3 2"/>',
+  spark: '<path d="M12 2l2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z"/>',
+  camera: '<path d="M3 8h4l2-3h6l2 3h4v11H3z"/><circle cx="12" cy="13" r="4"/>',
+  film: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/>',
+  play: '<rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/>',
+  bag: '<path d="M5 8h14l-1 13H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  hourglass: '<path d="M6 2h12M6 22h12M7 2c0 5 10 7 10 10s-10 5-10 10M17 2c0 5-10 7-10 10s10 5 10 10"/>',
+  pin: '<path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/>',
+  kid: '<circle cx="12" cy="6" r="3"/><path d="M7 21l1.5-8h7L17 21M8.5 13L5 10.5M15.5 13l3.5-2.5"/>',
+  chat: '<path d="M4 4h16v12H9l-5 4z"/><path d="M8 9h8M8 12h5"/>',
+  map: '<path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/>',
+  egg: '<path d="M12 3c4 0 7 7 7 11a7 7 0 0 1-14 0c0-4 3-11 7-11z"/>',
+  ticket: '<path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/>'
+};
+function icon(name, cls = '') {
+  return `<svg class="icon ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] || ICONS.spark}</svg>`;
+}
 
 /* ---- utilitários ---- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -95,7 +125,7 @@ function initMagicWord() {
     buf = (buf + e.key.toLowerCase()).slice(-5);
     if (buf === 'magia') {
       for (let i = 0; i < 8; i++) setTimeout(() => sparkle(Math.random() * innerWidth, Math.random() * innerHeight, 16), i * 120);
-      toast('✨ Magia! Você descobriu a palavra secreta do Hector.');
+      toast('Magia! Você descobriu a palavra secreta do Hector.');
     }
   });
 }
@@ -104,7 +134,7 @@ function initMagicWord() {
 const TOTAL_EGGS = 5;
 function eggsFound() { return store.get('hectorEggs', []); }
 function updateEggCounter() {
-  const el = $('#eggCount'); if (el) el.textContent = `🥚 ${eggsFound().length}/${TOTAL_EGGS}`;
+  const el = $('#eggCount'); if (el) el.innerHTML = `${icon('egg')} ${eggsFound().length}/${TOTAL_EGGS}`;
 }
 function findEgg(id, x, y) {
   const list = eggsFound();
@@ -112,8 +142,8 @@ function findEgg(id, x, y) {
   sparkle(x, y, 20);
   updateEggCounter();
   toast(list.length >= TOTAL_EGGS
-    ? '🐉 Você achou todos os Ovos de Dragão! Agora é Aprendiz Honorário do Hector.'
-    : `🥚 Ovo de Dragão encontrado! (${list.length}/${TOTAL_EGGS})`);
+    ? 'Você achou todos os Ovos de Dragão! Agora é Aprendiz Honorário do Hector.'
+    : `Ovo de Dragão encontrado! (${list.length}/${TOTAL_EGGS})`);
 }
 
 /* ---- revelação no scroll ---- */
@@ -198,12 +228,12 @@ document.addEventListener('DOMContentLoaded', () => {
   addEventListener('click', e => sparkle(e.clientX, e.clientY, 6));
   // Hector voando: 3 cliques = surpresa
   $$('.hector-fly').forEach(h => {
-    h.innerHTML = HECTOR_SVG; let n = 0;
+    h.innerHTML = `<img src="${HECTOR_IMG}" alt="Hector, o Mago Dragão" draggable="false">`; h.querySelector('img').onerror = () => { h.innerHTML = HECTOR_SVG; }; let n = 0;
     h.addEventListener('click', e => {
       e.stopPropagation(); n++;
       sparkle(e.clientX, e.clientY, 14);
       if (n === 3) { findEgg('hector-voando', e.clientX, e.clientY); n = 0; }
-      else toast(n === 1 ? '🐉 Hector: "Ei! Cuidado com as asas!"' : '🐉 Hector: "Mais uma vez e eu te conto um segredo…"');
+      else toast(n === 1 ? 'Hector: "Ei! Cuidado com o chapéu!"' : 'Hector: "Mais uma vez e eu te conto um segredo..."');
     });
   });
 });
